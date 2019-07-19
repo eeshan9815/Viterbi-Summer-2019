@@ -122,8 +122,8 @@ def gen_plots(model_file, scores_file, samples_file, z_file, noise, n, r):
     plt.colorbar(uu)
     plt.savefig('plots/talk/u_no_noise.png')
 
-    rnoise = u.vector()[:]*0.10
-    rnoise = rnoise * np.random.normal(0, 1, np.shape(rnoise))
+    #rnoise = u.vector()[:]*0.10
+    rnoise = np.random.normal(0, 0.1, np.shape(u.vector()[:]))
     u.vector()[:] = u.vector()[:] + rnoise
     uu = plt.figure()
     uu = plot(u)
